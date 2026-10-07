@@ -1,0 +1,36 @@
+@baseUrl = http://localhost:3000
+
+### Listar películas
+GET {{baseUrl}}/peliculas
+
+### Crear película
+POST {{baseUrl}}/peliculas
+Content-Type: application/json
+
+{
+  "codigo": "PEL-DEMO",
+  "nombre": "Película de ejemplo",
+  "genero": "Acción",
+  "duracion": 120,
+  "clasificacion": "B",
+  "sala": "Sala 1",
+  "hora_inicio": "10:00",
+  "img_ref": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&h=900&q=80",
+  "precio": 85.5,
+  "estado": "Disponible"
+}
+
+### Crear una reserva (asientos también puede ser un arreglo)
+POST {{baseUrl}}/reservas
+Content-Type: application/json
+
+{
+  "pelicula_id": 1,
+  "nombre_cliente": "Cliente de ejemplo",
+  "sala": "Sala 1",
+  "fecha_iniciacion_funcion": "2026-10-05 10:00:00",
+  "asientos": ["A5", "A2"]
+}
+
+### Ver reservas y asientos ocupados para una función
+GET {{baseUrl}}/reservas
